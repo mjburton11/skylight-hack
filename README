@@ -1,0 +1,39 @@
+# Skylight Alexa Skill
+
+Voice-control Skylight reward points via Alexa.
+
+## Setup
+
+### 1. Create the Lambda Function
+- Go to AWS Lambda → Create function → Author from scratch
+- Name: `skylight-alexa`
+- Runtime: Python 3.12
+- Add environment variables:
+  - `SKYLIGHT_TOKEN` — your Bearer token
+  - `FRAME_ID` — `3701822`
+- Add trigger: **Alexa Skills Kit**
+- Copy the **Lambda ARN**
+
+### 2. Create the Alexa Skill
+- Go to [developer.amazon.com](https://developer.amazon.com) → Alexa Skills Kit
+- Create skill → Custom → Alexa-hosted (No) → Provision your own
+- Invocation name: `skylight points`
+- Paste the contents of `alexa/skill.json` into the JSON editor
+- Under Endpoint, paste your Lambda ARN
+- Save and build the model
+
+### 3. GitHub Actions Deployment
+Add these secrets to your GitHub repo (Settings → Secrets):
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+
+Push to `main` to auto-deploy.
+
+## Usage
+
+- *"Alexa, ask skylight points to give Lily 3 points"*
+- *"Alexa, ask skylight points to reward Jack a point"*
+- *"Alexa, ask skylight points to deduct 2 points from James"*
+
+## Voice Profile (Optional)
+To restrict to your voice only, enable **Alexa Voice Profiles** in the Alexa app and add personalization checks in the Lambda handler using the `person.personId` field in the request context.

@@ -1,0 +1,52 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "skylight points",
+      "intents": [
+        {
+          "name": "GivePointsIntent",
+          "slots": [
+            { "name": "child", "type": "CHILD_NAMES" },
+            { "name": "points", "type": "AMAZON.NUMBER" }
+          ],
+          "samples": [
+            "give {child} {points} points",
+            "give {child} a point",
+            "reward {child} {points} points",
+            "reward {child} a point",
+            "add {points} points to {child}",
+            "give {points} points to {child}"
+          ]
+        },
+        {
+          "name": "DeductPointsIntent",
+          "slots": [
+            { "name": "child", "type": "CHILD_NAMES" },
+            { "name": "points", "type": "AMAZON.NUMBER" }
+          ],
+          "samples": [
+            "deduct {points} points from {child}",
+            "subtract {points} points from {child}",
+            "remove {points} points from {child}",
+            "take away {points} points from {child}",
+            "deduct a point from {child}",
+            "subtract a point from {child}"
+          ]
+        },
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] }
+      ],
+      "types": [
+        {
+          "name": "CHILD_NAMES",
+          "values": [
+            { "name": { "value": "Lily" } },
+            { "name": { "value": "James" } },
+            { "name": { "value": "Jack" } }
+          ]
+        }
+      ]
+    }
+  }
+}
