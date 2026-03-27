@@ -1,0 +1,53 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Control Skylight reward points with your voice",
+          "examplePhrases": [
+            "Alexa, ask skylight points to give Lily three points",
+            "Alexa, ask skylight points to reward Jack a point",
+            "Alexa, ask skylight points to deduct two points from James"
+          ],
+          "keywords": [
+            "skylight",
+            "points",
+            "rewards",
+            "kids",
+            "family"
+          ],
+          "name": "Skylight Points",
+          "description": "Voice-control Skylight reward points for your kids. Give or deduct points for Lily, James, or Jack using simple voice commands."
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Use the sample utterances to test giving and deducting points.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": [
+        "US"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:582381606547:function:skylight-points"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://example.com/privacy"
+        }
+      }
+    }
+  }
+}

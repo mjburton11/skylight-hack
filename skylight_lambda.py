@@ -22,9 +22,18 @@ def reward_points(child_id, points):
         "Authorization": f"Bearer {SKYLIGHT_TOKEN}",
         "Content-Type": "application/json",
         "skylight-api-version": API_VERSION,
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/json",
     })
-    with urllib.request.urlopen(req) as resp:
-        return resp.status
+    try:
+        with urllib.request.urlopen(req) as resp:
+            return resp.status
+    except urllib.error.HTTPError as e:
+        print(f"HTTP Error {e.code}: {e.reason}")
+        print(f"Response body: {e.read().decode('utf-8')}")
+        print(f"Token being used: {SKYLIGHT_TOKEN[:10]}...")
+        print(f"URL: {url}")
+        raise
 
 def speak(text):
     return {

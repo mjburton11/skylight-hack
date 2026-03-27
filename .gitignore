@@ -1,0 +1,27 @@
+# Environment variables and secrets
+.env
+*.pem
+*.key
+
+# Lambda deployment artifacts
+package/
+lambda-deployment.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ASK CLI
+.ask/cli_config
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
